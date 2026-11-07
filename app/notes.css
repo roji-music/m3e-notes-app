@@ -1,0 +1,1497 @@
+/* Material 3 Expressive Amber Theme for Interactive Notes App */
+:root {
+  --m3-primary: #7d5700;
+  --m3-on-primary: #ffffff;
+  --m3-primary-container: #ffdea6;
+  --m3-on-primary-container: #271900;
+  --m3-secondary: #6c5c3f;
+  --m3-on-secondary: #ffffff;
+  --m3-secondary-container: #f6e0bb;
+  --m3-on-secondary-container: #251a04;
+  --m3-surface: #fff8f2;
+  --m3-on-surface: #201b13;
+  --m3-surface-dim: #e3d9cf;
+  --m3-surface-bright: #fff8f2;
+  --m3-surface-container-lowest: #ffffff;
+  --m3-surface-container-low: #fdf2e8;
+  --m3-surface-container: #f7eee5;
+  --m3-surface-container-high: #f1e8df;
+  --m3-surface-container-highest: #ebe2d9;
+  --m3-outline: #817567;
+  --m3-outline-variant: #d4c4b4;
+  --m3-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --m3-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --m3-font: "Roboto", system-ui, -apple-system, sans-serif;
+  --m3-radius-sm: 8px;
+  --m3-radius-md: 16px;
+  --m3-radius-lg: 24px;
+  --m3-radius-full: 9999px;
+  --m3-trans: 0.25s cubic-bezier(0.2, 0, 0, 1);
+}
+
+[data-theme="dark"] {
+  --m3-primary: #ffba38;
+  --m3-on-primary: #422c00;
+  --m3-primary-container: #5f4100;
+  --m3-on-primary-container: #ffdea6;
+  --m3-secondary: #d9c4a0;
+  --m3-on-secondary: #3b2f15;
+  --m3-secondary-container: #53452a;
+  --m3-on-secondary-container: #f6e0bb;
+  --m3-surface: #18130b;
+  --m3-on-surface: #ebe2d9;
+  --m3-surface-dim: #18130b;
+  --m3-surface-bright: #3f3830;
+  --m3-surface-container-lowest: #120e07;
+  --m3-surface-container-low: #201b13;
+  --m3-surface-container: #251f17;
+  --m3-surface-container-high: #2f2921;
+  --m3-surface-container-highest: #3b342c;
+  --m3-outline: #9c8e80;
+  --m3-outline-variant: #4f4539;
+  --m3-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.m3-app-root {
+  min-height: 100vh;
+  background-color: var(--m3-surface-dim);
+  color: var(--m3-on-surface);
+  font-family: var(--m3-font);
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--m3-trans), color var(--m3-trans);
+}
+
+/* Control Banner Header */
+.m3-top-control-bar {
+  background: var(--m3-surface-container-highest);
+  border-bottom: 1px solid var(--m3-outline-variant);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  z-index: 50;
+}
+
+.m3-control-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--m3-primary);
+}
+
+.m3-badge-live {
+  background: #2e7d32;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--m3-radius-full);
+  letter-spacing: 0.5px;
+}
+
+.m3-control-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.m3-pill-group {
+  display: flex;
+  background: var(--m3-surface-container);
+  border: 1px solid var(--m3-outline-variant);
+  border-radius: var(--m3-radius-full);
+  padding: 2px;
+}
+
+.m3-pill-btn {
+  padding: 6px 14px;
+  border-radius: var(--m3-radius-full);
+  border: none;
+  background: transparent;
+  color: var(--m3-on-surface);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--m3-trans);
+}
+
+.m3-pill-btn.active {
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.m3-btn-canvas-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--m3-radius-full);
+  background: var(--m3-surface);
+  color: var(--m3-primary);
+  border: 1px solid var(--m3-outline-variant);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--m3-trans);
+}
+
+.m3-btn-canvas-link:hover {
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+}
+
+/* Main Container Area */
+.m3-viewport-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 10px;
+  overflow-y: auto;
+}
+
+/* Phone Simulator Frame */
+.m3-phone-frame {
+  width: 412px;
+  min-height: 892px;
+  height: 892px;
+  background: var(--m3-surface);
+  border-radius: 44px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), 0 0 0 12px #2b2b2b, 0 0 0 14px #4a4a4a;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Phone Punch Hole / Notch */
+.m3-phone-notch {
+  width: 14px;
+  height: 14px;
+  background: #111;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+/* Desktop Workspace Frame */
+.m3-desktop-frame {
+  width: 100%;
+  max-width: 1380px;
+  min-height: 820px;
+  background: var(--m3-surface);
+  border-radius: var(--m3-radius-lg);
+  box-shadow: var(--m3-shadow-hover);
+  border: 1px solid var(--m3-outline-variant);
+  display: flex;
+  overflow: hidden;
+}
+
+/* Navigation Rail (Desktop) */
+.m3-nav-rail {
+  width: 96px;
+  background: var(--m3-surface-container);
+  border-right: 1px solid var(--m3-outline-variant);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.m3-rail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: var(--m3-on-surface);
+  cursor: pointer;
+  padding: 6px 4px;
+  width: 80px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: var(--m3-radius-md);
+  transition: var(--m3-trans);
+}
+
+.m3-rail-icon-box {
+  width: 56px;
+  height: 32px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--m3-trans);
+}
+
+.m3-rail-item.active .m3-rail-icon-box {
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+}
+
+.m3-rail-item:hover {
+  background: var(--m3-surface-container-high);
+}
+
+/* Top App Bar */
+.m3-top-app-bar {
+  height: 64px;
+  background: var(--m3-surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--m3-outline-variant);
+  flex-shrink: 0;
+}
+
+.m3-top-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.m3-icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--m3-on-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--m3-trans);
+}
+
+.m3-icon-btn:hover {
+  background: var(--m3-surface-container-high);
+}
+
+/* Search Bar */
+.m3-search-bar {
+  background: var(--m3-surface-container-high);
+  border-radius: var(--m3-radius-full);
+  display: flex;
+  align-items: center;
+  padding: 4px 16px;
+  gap: 12px;
+  margin: 12px 16px;
+  height: 48px;
+  border: 1px solid transparent;
+  transition: var(--m3-trans);
+}
+
+.m3-search-bar:focus-within {
+  border-color: var(--m3-primary);
+  background: var(--m3-surface-container-lowest);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.m3-search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: 15px;
+  color: var(--m3-on-surface);
+}
+
+/* Category Filter Chips */
+.m3-chips-scroll {
+  display: flex;
+  gap: 8px;
+  padding: 4px 16px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.m3-chip {
+  padding: 6px 14px;
+  border-radius: var(--m3-radius-sm);
+  background: var(--m3-surface-container-high);
+  border: 1px solid var(--m3-outline-variant);
+  color: var(--m3-on-surface);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: var(--m3-trans);
+}
+
+.m3-chip.active {
+  background: var(--m3-primary-container);
+  border-color: var(--m3-primary);
+  color: var(--m3-on-primary-container);
+}
+
+/* Notes Master List */
+.m3-notes-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.m3-note-card {
+  background: var(--m3-surface-container);
+  border-radius: var(--m3-radius-md);
+  padding: 14px 16px;
+  border: 1px solid var(--m3-outline-variant);
+  cursor: pointer;
+  text-align: left;
+  transition: var(--m3-trans);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.m3-note-card:hover {
+  background: var(--m3-surface-container-high);
+  transform: translateY(-1px);
+}
+
+.m3-note-card.selected {
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+  border-color: var(--m3-primary);
+}
+
+.m3-note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.m3-note-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.m3-note-desc {
+  font-size: 13px;
+  opacity: 0.85;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.m3-note-meta {
+  font-size: 11px;
+  opacity: 0.65;
+  margin-top: 4px;
+}
+
+/* FAB */
+.m3-fab {
+  position: absolute;
+  bottom: 84px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--m3-radius-md);
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+  border: none;
+  box-shadow: var(--m3-shadow-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--m3-trans);
+  z-index: 20;
+}
+
+.m3-fab:hover {
+  transform: scale(1.06);
+  background: var(--m3-primary);
+  color: var(--m3-on-primary);
+}
+
+/* Bottom Navigation Bar (Phone) */
+.m3-bottom-nav {
+  height: 72px;
+  background: var(--m3-surface-container);
+  border-top: 1px solid var(--m3-outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-shrink: 0;
+  z-index: 30;
+}
+
+.m3-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: var(--m3-on-surface);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  width: 72px;
+}
+
+.m3-nav-pill {
+  width: 56px;
+  height: 30px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--m3-trans);
+}
+
+.m3-bottom-nav-item.active .m3-nav-pill {
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+}
+
+/* Modal Navigation Drawer (Phone Overlay) */
+.m3-drawer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 200;
+  display: flex;
+  animation: fadeIn 0.2s ease;
+}
+
+.m3-drawer-sheet {
+  width: 320px;
+  height: 100%;
+  background: var(--m3-surface);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  gap: 16px;
+  animation: slideInLeft 0.25s cubic-bezier(0.2, 0, 0, 1);
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Desktop Two-Column Layout */
+.m3-desktop-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.m3-desktop-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.m3-desktop-master-col {
+  width: 380px;
+  border-right: 1px solid var(--m3-outline-variant);
+  display: flex;
+  flex-direction: column;
+  background: var(--m3-surface);
+}
+
+.m3-desktop-detail-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--m3-surface-container-lowest);
+  padding: 24px 32px;
+  overflow-y: auto;
+}
+
+/* Detail Editor Elements */
+.m3-editor-toolbar {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+  background: var(--m3-surface-container-high);
+  border-radius: var(--m3-radius-md);
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.m3-editor-title-in {
+  width: 100%;
+  font-size: 26px;
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--m3-on-surface);
+  margin-bottom: 12px;
+  font-family: inherit;
+}
+
+.m3-editor-body-textarea {
+  width: 100%;
+  flex: 1;
+  min-height: 380px;
+  font-size: 16px;
+  line-height: 1.6;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--m3-on-surface);
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Checklist / Todo Elements */
+.m3-todo-progress-card {
+  background: var(--m3-surface-container);
+  border-radius: var(--m3-radius-md);
+  padding: 16px;
+  margin: 16px;
+  border: 1px solid var(--m3-outline-variant);
+}
+
+.m3-progress-bar-bg {
+  height: 10px;
+  background: var(--m3-surface-container-highest);
+  border-radius: var(--m3-radius-full);
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.m3-progress-bar-fill {
+  height: 100%;
+  background: var(--m3-primary);
+  border-radius: var(--m3-radius-full);
+  transition: width 0.3s ease;
+}
+
+.m3-todo-input-row {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 12px;
+}
+
+.m3-todo-input {
+  flex: 1;
+  height: 44px;
+  border-radius: var(--m3-radius-full);
+  border: 1px solid var(--m3-outline-variant);
+  background: var(--m3-surface-container-high);
+  padding: 0 16px;
+  color: var(--m3-on-surface);
+  outline: none;
+}
+
+.m3-btn-add-task {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: var(--m3-radius-full);
+  border: none;
+  background: var(--m3-primary);
+  color: var(--m3-on-primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.m3-todo-item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--m3-surface-container);
+  border-radius: var(--m3-radius-sm);
+  margin: 0 16px 8px;
+  border: 1px solid var(--m3-outline-variant);
+  transition: var(--m3-trans);
+}
+
+.m3-todo-checkbox {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--m3-primary);
+  cursor: pointer;
+}
+
+.m3-todo-text {
+  flex: 1;
+  font-size: 15px;
+}
+
+.m3-todo-text.done {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+/* Settings Elements */
+.m3-settings-list {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.m3-switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: var(--m3-surface-container);
+  border-radius: var(--m3-radius-md);
+  border: 1px solid var(--m3-outline-variant);
+}
+
+.m3-switch-btn {
+  width: 52px;
+  height: 28px;
+  background: var(--m3-surface-container-highest);
+  border: 2px solid var(--m3-outline);
+  border-radius: var(--m3-radius-full);
+  cursor: pointer;
+  position: relative;
+  transition: var(--m3-trans);
+}
+
+.m3-switch-btn.checked {
+  background: var(--m3-primary);
+  border-color: var(--m3-primary);
+}
+
+.m3-switch-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--m3-on-primary);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform var(--m3-trans);
+}
+
+.m3-switch-btn.checked .m3-switch-thumb {
+  transform: translateX(24px);
+}
+
+
+/* Icon font: layout.tsx loads "Material Symbols Rounded" only, so map the class used by
+   Notebook.tsx onto it. Without this the ligature names (menu, search, add...) render as text. */
+.material-symbols-outlined {
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-size: 24px;
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  user-select: none;
+}
+
+
+/* ===================== Quản lý thời gian, soạn thảo di động, bố cục ===================== */
+
+/* Khung cố định để cột danh sách / soạn thảo tự cuộn, không đẩy bố cục */
+.m3-desktop-frame {
+  height: 820px;
+}
+.m3-desktop-main {
+  min-width: 0;
+  min-height: 0;
+}
+.m3-desktop-master-col {
+  min-height: 0;
+  flex-shrink: 0;
+}
+.m3-desktop-detail-col {
+  min-width: 0;
+}
+
+/* Phone: vùng nội dung cuộn, thanh điều hướng luôn nằm đáy khung */
+.m3-phone-scroll,
+.m3-mobile-editor,
+.m3-settings-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+.m3-phone-scroll .m3-notes-list {
+  flex: none;
+  overflow: visible;
+  padding-bottom: 96px;
+}
+.m3-settings-list {
+  align-content: start;
+}
+.m3-mobile-editor {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.m3-mobile-editor .m3-editor-body-textarea {
+  flex: none;
+  min-height: 200px;
+  height: 200px;
+}
+
+/* Tóm tắt lịch */
+.m3-agenda {
+  margin: 12px 16px 0;
+  padding: 12px;
+  background: var(--m3-surface-container);
+  border: 1px solid var(--m3-outline-variant);
+  border-radius: var(--m3-radius-md);
+}
+.m3-agenda-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--m3-primary);
+  text-transform: capitalize;
+}
+.m3-agenda-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+.m3-agenda-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  border-radius: var(--m3-radius-sm);
+  border: 1px solid var(--m3-outline-variant);
+  background: var(--m3-surface);
+  color: var(--m3-on-surface);
+  cursor: pointer;
+  font-size: 12px;
+  transition: var(--m3-trans);
+}
+.m3-agenda-card strong {
+  font-size: 20px;
+  line-height: 1.1;
+}
+.m3-agenda-card.overdue strong {
+  color: #b3261e;
+}
+.m3-agenda-card.active {
+  background: var(--m3-primary-container);
+  border-color: var(--m3-primary);
+  color: var(--m3-on-primary-container);
+}
+
+/* Bộ lọc thời hạn / sắp xếp */
+.m3-filter-row {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 12px;
+}
+.m3-filter-field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  height: 38px;
+  border-radius: var(--m3-radius-sm);
+  background: var(--m3-surface-container-high);
+  border: 1px solid var(--m3-outline-variant);
+  color: var(--m3-on-surface);
+}
+.m3-select {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: var(--m3-on-surface);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+.m3-select option {
+  background: var(--m3-surface);
+  color: var(--m3-on-surface);
+}
+.m3-select.boxed {
+  flex: none;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: var(--m3-radius-sm);
+  background: var(--m3-surface-container-high);
+  border: 1px solid var(--m3-outline-variant);
+}
+
+/* Huy hiệu hạn chót */
+.m3-due-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: var(--m3-radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--m3-surface-container-highest);
+  color: var(--m3-on-surface);
+}
+.m3-due-badge.overdue {
+  background: #f9dedc;
+  color: #8c1d18;
+}
+.m3-due-badge.today {
+  background: #ffdea6;
+  color: #4a3000;
+}
+.m3-due-badge.soon {
+  background: #e6f0d4;
+  color: #2a3d10;
+}
+.m3-due-badge.done {
+  background: #d7ecd8;
+  color: #1b5e20;
+}
+.m3-note-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 4px;
+}
+.m3-note-meta-row .m3-note-meta {
+  margin-top: 0;
+}
+.m3-note-title.done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Bảng lịch trình trong trình soạn thảo */
+.m3-schedule-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  margin-bottom: 14px;
+  background: var(--m3-surface-container);
+  border: 1px solid var(--m3-outline-variant);
+  border-radius: var(--m3-radius-md);
+}
+.m3-schedule-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.m3-field-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.m3-date-group {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.m3-date-input {
+  height: 36px;
+  padding: 0 8px;
+  border-radius: var(--m3-radius-sm);
+  border: 1px solid var(--m3-outline-variant);
+  background: var(--m3-surface-container-high);
+  color: var(--m3-on-surface);
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+.m3-date-input:focus {
+  border-color: var(--m3-primary);
+}
+.m3-date-input:disabled {
+  opacity: 0.5;
+}
+html[data-theme="dark"] .m3-date-input {
+  color-scheme: dark;
+}
+.m3-quick-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.m3-done-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.m3-done-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--m3-primary);
+}
+.m3-note-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-size: 11px;
+  opacity: 0.7;
+}
+.m3-editor-footer {
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+/* Nút thêm ghi chú trên desktop */
+.m3-btn-new-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 18px 0 12px;
+  border: none;
+  border-radius: var(--m3-radius-full);
+  background: var(--m3-primary);
+  color: var(--m3-on-primary);
+  font-weight: 700;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--m3-trans);
+}
+.m3-btn-new-note:hover {
+  filter: brightness(1.08);
+  box-shadow: var(--m3-shadow-hover);
+}
+
+/* Trạng thái rỗng, việc cần làm có hạn */
+.m3-empty-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 16px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.75;
+}
+.m3-todo-input-row {
+  flex-wrap: wrap;
+}
+.m3-todo-input {
+  min-width: 140px;
+}
+.m3-todo-date {
+  height: 44px;
+  border-radius: var(--m3-radius-full);
+  padding: 0 12px;
+  flex: 1;
+  min-width: 130px;
+}
+.m3-todo-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.m3-todo-body .m3-todo-text {
+  flex: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .m3-drawer-overlay,
+  .m3-drawer-sheet {
+    animation: none;
+  }
+  .m3-note-card:hover,
+  .m3-fab:hover {
+    transform: none;
+  }
+}
+
+
+/* ===================== Đồng bộ 8 màn hình M3E Canvas ===================== */
+
+/* Icon dẫn đầu cho mỗi thẻ ghi chú trong danh sách */
+.m3-note-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.m3-note-lead-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--m3-surface-container-highest);
+  color: var(--m3-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.m3-note-lead-icon.pinned,
+.m3-note-card.selected .m3-note-lead-icon {
+  background: var(--m3-primary);
+  color: var(--m3-on-primary);
+}
+.m3-note-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* Nút "Tạo ghi chú mới" rộng trong cột Master của Desktop (khớp canvas g_d_work_btn_add) */
+.m3-btn-master-add {
+  width: 100%;
+  height: 44px;
+  border-radius: var(--m3-radius-full);
+  border: none;
+  background: var(--m3-primary);
+  color: var(--m3-on-primary);
+  font-weight: 700;
+  font-size: 14px;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--m3-trans);
+}
+.m3-btn-master-add:hover {
+  filter: brightness(1.08);
+  box-shadow: var(--m3-shadow-hover);
+}
+
+/* Màn hình Chi tiết ghi chú trên Phone (frame 5: phone_detail) */
+.m3-mobile-detail {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.m3-detail-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 4px 0 0;
+  line-height: 1.25;
+}
+.m3-detail-stamp {
+  font-size: 12px;
+  opacity: 0.7;
+}
+.m3-divider {
+  height: 1px;
+  background: var(--m3-outline-variant);
+  margin: 4px 0;
+}
+.m3-detail-card {
+  background: var(--m3-surface-container);
+  border: 1px solid var(--m3-outline-variant);
+  border-radius: var(--m3-radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.m3-detail-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--m3-primary);
+}
+.m3-detail-card-body {
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+.m3-btn-primary-full {
+  margin-top: auto;
+  width: 100%;
+  height: 48px;
+  border-radius: var(--m3-radius-full);
+  border: none;
+  background: var(--m3-primary);
+  color: var(--m3-on-primary);
+  font-weight: 700;
+  font-size: 15px;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Trường nhập có viền nổi theo phong cách M3 Outlined Field (frame 6 & 7) */
+.m3-outlined-field {
+  background: var(--m3-surface-container);
+  border: 1px solid var(--m3-outline-variant);
+  border-radius: var(--m3-radius-md);
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+.m3-outlined-field:focus-within {
+  border-color: var(--m3-primary);
+  background: var(--m3-surface-container-lowest);
+}
+.m3-outlined-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--m3-primary);
+  margin-bottom: 4px;
+}
+.m3-outlined-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--m3-on-surface);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+}
+.m3-outlined-input option {
+  background: var(--m3-surface);
+  color: var(--m3-on-surface);
+}
+.m3-outlined-textarea {
+  width: 100%;
+  flex: 1;
+  min-height: 140px;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--m3-on-surface);
+  font-size: 14px;
+  line-height: 1.55;
+  resize: none;
+  font-family: inherit;
+}
+.m3-outlined-field .m3-editor-title-in {
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+/* Cặp nút Hủy bỏ / Lưu thay đổi (frame 6) */
+.m3-edit-btn-pair {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.m3-btn-tonal,
+.m3-btn-filled {
+  flex: 1;
+  height: 44px;
+  border-radius: var(--m3-radius-full);
+  font-weight: 700;
+  font-size: 14px;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--m3-trans);
+}
+.m3-btn-tonal {
+  border: 1px solid var(--m3-outline-variant);
+  background: var(--m3-surface-container-high);
+  color: var(--m3-on-surface);
+}
+.m3-btn-filled {
+  border: none;
+  background: var(--m3-primary);
+  color: var(--m3-on-primary);
+}
+
+/* Hàng thẻ (tags) và vùng thân bài trên Desktop (frame 7) */
+.m3-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.m3-tag-remove {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0 2px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.m3-tag-input {
+  height: 32px;
+  padding: 0 10px;
+  border-radius: var(--m3-radius-sm);
+  border: 1px solid var(--m3-primary);
+  background: var(--m3-surface);
+  color: var(--m3-on-surface);
+  font-size: 13px;
+  outline: none;
+}
+
+.m3-body-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--m3-surface-container);
+  border: 1px solid var(--m3-outline-variant);
+  border-radius: var(--m3-radius-md);
+  padding: 14px 16px;
+  min-height: 260px;
+}
+.m3-body-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--m3-primary);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--m3-outline-variant);
+}
+.m3-body-card-meta {
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--m3-on-surface);
+  opacity: 0.65;
+}
+.m3-body-card .m3-editor-body-textarea {
+  min-height: 200px;
+}
+
+.m3-editor-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--m3-outline-variant);
+}
+.m3-inline-switches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.m3-inline-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.m3-editor-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.m3-save-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--m3-radius-full);
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Bảng thẻ Grid tổng quan (frame 8: desktop_board) */
+.m3-board-wrap {
+  flex: 1;
+  padding: 24px 28px;
+  overflow-y: auto;
+}
+.m3-board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.m3-board-card {
+  background: var(--m3-surface-container);
+  border: 1px solid var(--m3-outline-variant);
+  border-radius: var(--m3-radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--m3-trans);
+  min-height: 176px;
+}
+.m3-board-card:hover {
+  background: var(--m3-surface-container-high);
+  transform: translateY(-2px);
+  box-shadow: var(--m3-shadow);
+}
+.m3-board-card.pinned {
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+  border-color: var(--m3-primary);
+}
+.m3-board-card.add-card {
+  border-style: dashed;
+  align-items: center;
+  justify-content: center;
+  color: var(--m3-primary);
+  font-weight: 700;
+  font-size: 14px;
+}
+.m3-board-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.m3-board-card-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+.m3-board-card-body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.85;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+.m3-board-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* Ngăn kéo Navigation Drawer chi tiết (frame 2: phone_drawer) */
+.m3-drawer-profile {
+  background: var(--m3-surface-container);
+  border: 1px solid var(--m3-outline-variant);
+  padding: 12px;
+  border-radius: var(--m3-radius-md);
+}
+.m3-drawer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.m3-drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--m3-radius-md);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--m3-on-surface);
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--m3-trans);
+}
+.m3-drawer-item:hover {
+  background: var(--m3-surface-container-high);
+}
+.m3-drawer-item.active {
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+  border-color: var(--m3-primary);
+}
+.m3-drawer-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.m3-drawer-item-text strong {
+  font-size: 14px;
+}
+.m3-drawer-item-text span {
+  font-size: 11px;
+  opacity: 0.72;
+}
